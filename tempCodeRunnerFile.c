@@ -1,17 +1,36 @@
+//structer for name of book,author and year
 #include <stdio.h>
-#include <stdarg.h>
-void display (int count, ...)
+#include <stdlib.h>
+#include <string.h> 
+struct book
 {
-    va_list list;
-    va_start (list,count);
-    for (int i=1; i<=count; i++)
-    {
-        int n = va_arg(list,int);
-        printf("%d",n);
-    }
-    va_end (list);
-}
+    char name [100];
+    char author [100];
+    int year;
+};
+
 void main()
 {
-    display(5,56,56,98,34,89);
+    int n;
+    printf("enter the number of books");
+    scanf("%d",&n);
+    struct book b[3] ;
+    for(int i = 0; i<n; i++ )
+    {
+        printf("enter name of book : ");
+        scanf("%s",b[i].name);
+    
+        printf("enter author of book: ");
+        scanf("%s",b[i].author);
+
+        printf("enter year of publication");
+        scanf("%d",&b[i].year);
+    }
+    for(int i = 0; i<n; i++ )
+    {
+        printf("%s\n",b[i].name);
+        printf("%s\n",b[i].author);
+        printf("%d\n",&b[i].year);
+    }
+
 }
